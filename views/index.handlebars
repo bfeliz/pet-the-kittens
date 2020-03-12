@@ -1,0 +1,38 @@
+<h1>Kittens!</h1>
+
+<h2>Kittens that need some petting...</h2>
+
+<ul>
+    {{#each kittens}}
+    {{#unless petted}}
+    {{> kittens/kitten-block pet=true}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Happy petted kittens!</h2>
+
+<ul>
+    {{#each kittens}}
+    {{#unless petted}}
+    {{> kittens/kitten-block pet=false}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Add a Kitten</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="ki">Kitten Name:</label>
+        <input type="text" id="ki" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="pet">Pet?</label><br>
+        <input type="radio" name="petted" value="1" checked> Petted!<br>
+        <input type="radio" name="petted" value="0"> Awake
+    </div>
+
+    <button type="submit">Add Kitten</button>
+</form>
