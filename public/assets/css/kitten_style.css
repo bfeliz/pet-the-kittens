@@ -1,15 +1,22 @@
+html {
+    height: 1400px;
+}
 body {
     background-image: url(../img/background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.top-row {
-    padding-top: 8%;
+.add-kit {
+    padding: 5% 0%;
 }
 .kitten-text {
     font-size: medium;
 }
 li {
     font-size: x-large;
+}
+.change-pet,
+.delete-kitten {
+    margin-left: 3%;
 }
