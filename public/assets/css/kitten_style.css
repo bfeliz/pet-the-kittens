@@ -7,6 +7,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.header {
+    font-size: xx-large;
+    padding: 1%;
+}
 .add-kit {
     padding: 5% 0%;
 }
