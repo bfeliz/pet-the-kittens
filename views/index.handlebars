@@ -33,7 +33,11 @@
                 <ul>
                     {{#each kittens}}
                     {{#if pet}}
-                    <li> {{name}} </li>
+                    <li> {{name}}
+                        <a class="waves-effect waves-light btn-small purple accent-2 delete-kitten" data-id="{{id}}">Let
+                            me go sleep</a>
+
+                    </li>
                     {{/if}}
                     {{/each}}
                 </ul>

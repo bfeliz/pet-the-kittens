@@ -28,4 +28,14 @@ $(document).ready(function() {
             location.reload();
         });
     });
+
+    $(".delete-kitten").on("click", function() {
+        let id = $(this).data("id");
+
+        $.ajax("/api/kittens/" + id, {
+            type: "DELETE"
+        }).then(function() {
+            location.reload();
+        });
+    });
 });

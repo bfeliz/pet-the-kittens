@@ -18,6 +18,12 @@ const kitten = {
         orm.updateOne("kittens", colVals, condition, function(res) {
             cb(res);
         });
+    },
+    // delete kitten from petted list
+    deleteOne: function(condition, cb) {
+        orm.deleteOne("kittens", condition, function(res) {
+            cb(res);
+        });
     }
 };
 
