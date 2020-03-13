@@ -1,19 +1,15 @@
+body {
+    background-image: url(../img/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-row {
+    padding-top: 8%;
+}
+.kitten-text {
+    font-size: medium;
+}
 li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-}
-
-.label {
-    font-weight: bold;
-}
-
-.create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
-}
-
-.form-group {
-    margin-bottom: 5px;
+    font-size: x-large;
 }
