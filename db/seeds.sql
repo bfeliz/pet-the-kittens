@@ -1,12 +1,10 @@
--- database filler
+-- database seed
 
-USE kittens_db;
+INSERT INTO kittens (name, pet)
+VALUES ("Shadow", true);
 
-INSERT INTO kittens (kitten_name, petted)
-VALUES ("Cinder", true);
-
-INSERT INTO kittens (kitten_name, petted)
+INSERT INTO kittens (name, pet)
 VALUES ("Ebby", false);
 
-INSERT INTO kittens (kitten_name, petted)
+INSERT INTO kittens (name, pet)
 VALUES ("Jenny", false);

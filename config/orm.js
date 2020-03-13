@@ -1,5 +1,6 @@
-const connection = require("./connection");
+const connection = require("../config/connection.js");
 
+// helper function for sql syntax
 function printQuestionMarks(num) {
     let arr = [];
 
@@ -16,15 +17,13 @@ function objToSql(ob) {
 
     // loop through the keys and push the key/value as a string int arr
     for (let key in ob) {
-        let value = ob[key];
+        const value = ob[key];
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
-            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-            // e.g. {sleepy: true} => ["sleepy=true"]
+
             arr.push(key + "=" + value);
         }
     }
@@ -36,7 +35,7 @@ function objToSql(ob) {
 const orm = {
     // show all kittens from selected table
     selectAll: function(table, cb) {
-        const queryString = "SELECT * FROM " + table + ";";
+        let queryString = "SELECT * FROM " + table + ";";
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
@@ -44,15 +43,13 @@ const orm = {
     },
     // insert a new kitten
     insertOne: function(table, col, val, cb) {
-        const queryString = "INSERT INTO " + table;
+        let queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += col.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += printQuestionMarks(val.length);
         queryString += ") ";
-
-        console.log(queryString);
 
         connection.query(queryString, val, function(err, result) {
             if (err) throw err;
@@ -61,14 +58,12 @@ const orm = {
     },
     // update kitten petting status
     updateOne: function(table, colVals, condition, cb) {
-        const queryString = "UPDATE " + table;
-
+        let queryString = "UPDATE " + table;
         queryString += " SET ";
         queryString += objToSql(colVals);
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log(queryString);
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);

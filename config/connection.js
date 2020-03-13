@@ -1,18 +1,14 @@
-// const util = require("util");
+// set up mysql connection
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
     host: "localhost",
-    // Your username
+    port: 3306,
     user: "root",
-    // Your password
     password: "",
     database: "kittens_db"
 });
 
 connection.connect();
-
-// Setting up connection.query to use promises instead of callbacks
-// connection.query = util.promisify(connection.query);
 
 module.exports = connection;
